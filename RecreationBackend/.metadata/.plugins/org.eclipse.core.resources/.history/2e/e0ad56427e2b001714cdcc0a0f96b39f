@@ -1,0 +1,39 @@
+package com.mrinal.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mrinal.model.Sports;
+import com.mrinal.repo.SportsRepo;
+import com.mrinal.response.SportsResponse;
+
+@RestController
+@RequestMapping("/sports")
+public class SportsController {
+
+	@Autowired
+	SportsRepo sp;
+	
+	@RequestMapping("/getAllSports")
+	@ResponseBody
+	public ResponseEntity<SportsResponse> getSports(@RequestBody Sports sports){
+		
+		Sports newSports=null;
+		SportsResponse response = null;
+		try{
+			if(sports.getSportsName()!=null){
+				newSports = (Sports) sp.findBySportsName(sports.getSportsName());
+				response = new SportsResponse("SUCCESS", "Sports Fetched Successfully", "None", newSports.getSportsName(), newSports.getHost(), newSports.getVenue(), newSports.getDate(), newSports.getTime(), newSports.getDescription())
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+	}
+}

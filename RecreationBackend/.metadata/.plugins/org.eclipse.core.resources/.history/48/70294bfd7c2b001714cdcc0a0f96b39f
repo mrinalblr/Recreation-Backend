@@ -1,0 +1,71 @@
+package com.mrinal.response;
+
+import java.util.Date;
+
+public class SportsReponse {
+
+	private String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	private String successMessage;
+	private String errorMessage;
+	private String sportsName;
+	private String host;
+	private String venue;
+	private Date date;
+	private String time;
+	private String description;
+	public String getSuccessMessage() {
+		return successMessage;
+	}
+	public void setSuccessMessage(String successMessage) {
+		this.successMessage = successMessage;
+	}
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+	public String getSportsName() {
+		return sportsName;
+	}
+	public void setSportsName(String sportsName) {
+		this.sportsName = sportsName;
+	}
+	public String getHost() {
+		return host;
+	}
+	public void setHost(String host) {
+		this.host = host;
+	}
+	public String getVenue() {
+		return venue;
+	}
+	public void setVenue(String venue) {
+		this.venue = venue;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+}

@@ -1,0 +1,16 @@
+package com.mrinal.model;
+
+import java.util.Date;
+
+public class Sports {
+
+	private String sportsName;
+	private String host;
+	private String venue;
+	private Date date;
+	private String time;
+	private String description;
+	
+	
+	
+}

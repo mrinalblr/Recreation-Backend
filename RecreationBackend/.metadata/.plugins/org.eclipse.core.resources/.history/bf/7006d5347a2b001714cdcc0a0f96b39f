@@ -1,0 +1,30 @@
+package com.mrinal.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mrinal.model.Sports;
+import com.mrinal.repo.SportsRepo;
+
+@RestController
+@RequestMapping("/sports")
+public class SportsController {
+
+	@Autowired
+	SportsRepo sp;
+	
+	@RequestMapping("/getAllSports")
+	public Sports getBySportsName(String sportsName){
+		Sports sports=null;
+		try{
+			sports = sp.findBySportsName(sportsName);
+			sports=(Sports) sp.findAll();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return sports;
+		
+	}
+}

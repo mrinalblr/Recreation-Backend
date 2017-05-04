@@ -1,0 +1,23 @@
+package com.mrinal.response;
+
+import java.util.Date;
+
+public class SportsReponse {
+
+	private String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	private String successMessage;
+	private String errorMessage;
+	private String sportsName;
+	private String host;
+	private String venue;
+	private Date date;
+	private String time;
+	private String description;
+	
+}
