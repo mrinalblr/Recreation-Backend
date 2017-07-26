@@ -1,0 +1,23 @@
+package com.mrinal.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class UserDetails {
+
+	@Id
+	private int userDetailsId;
+	private String gender;
+	private Date dob;
+	private long mobileNumber;
+	private String addressLine1;
+	private String addressLine2;
+	
+	@OneToOne
+	private User user;
+
+}

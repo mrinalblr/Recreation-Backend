@@ -1,0 +1,6 @@
+package com.mrinal.model;
+
+@Entity
+public class UserDetails {
+
+}

@@ -1,0 +1,9 @@
+package com.mrinal.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Car {
+ 
+	private String name;
+}

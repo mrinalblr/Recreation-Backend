@@ -1,0 +1,18 @@
+package com.mrinal.repo;
+
+import com.mrinal.model.UserDetails;
+
+public class UserDetailsRepoImpl implements UserDetailsRepo {
+
+	
+
+
+
+	@Override
+	public UserDetails addDetailsById(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

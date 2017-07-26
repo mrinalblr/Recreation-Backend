@@ -1,0 +1,7 @@
+package com.mrinal.model;
+
+public class CarDetails {
+
+	private String carModel;
+	private int id;
+}

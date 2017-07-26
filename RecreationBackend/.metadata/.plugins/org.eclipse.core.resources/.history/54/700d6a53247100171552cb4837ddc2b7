@@ -1,0 +1,27 @@
+package com.mrinal.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mrinal.model.Car;
+import com.mrinal.repo.CarRepo;
+
+@RestController
+@RequestMapping("/car")
+public class CarController{
+
+	@Autowired
+	CarRepo cp;
+	
+	@RequestMapping(value="/create",method=RequestMethod.POST)
+	@ResponseBody
+	public Car createCar(@RequestBody Car car){
+		Car c = new Car();
+		c = (Car)cp.save(car);
+		return c;
+	}
+}

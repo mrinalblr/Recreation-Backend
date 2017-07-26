@@ -1,0 +1,11 @@
+package com.mrinal.model;
+
+import java.sql.Date;
+
+public class UserDetails {
+
+	private int userDetailsId;
+	private String gender;
+	private long mobileNumber;
+	private Date dob;
+}

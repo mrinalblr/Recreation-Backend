@@ -1,0 +1,48 @@
+package com.mrinal.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
+
+@Configuration
+@EnableWebSecurity
+public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	private ClientDetailsService clientDetailsService;
+	 
+	@Autowired
+	public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception{
+		auth.inMemoryAuthentication()
+		.withUser("mrinal.deo2@gmail.com").password("Mrinal@22").roles("ADMIN").and()
+		.withUser("mrinal").password("deo2205").roles("USER");
+	}
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		// TODO Auto-generated method stub
+		http
+		.csrf().disable()
+		.anonymous().disable()
+		.authorizeRequests()
+		.antMatchers("/oauth/token").permitAll();
+	}
+
+	@Override
+	@Bean
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		// TODO Auto-generated method stub
+		return super.authenticationManagerBean();
+	}
+	
+	
+	
+	
+
+}

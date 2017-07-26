@@ -1,0 +1,58 @@
+package com.mrinal.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name="USER_DETAILS")
+public class UserDetails {
+
+	
+	private int userDetailsId;
+	private String gender;
+	private Date dob;
+	private long mobileNumber;
+	
+	public int getUserDetailsId() {
+		return userDetailsId;
+	}
+	public void setUserDetailsId(int userDetailsId) {
+		this.userDetailsId = userDetailsId;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public Date getDob() {
+		return dob;
+	}
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+	public long getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setMobileNumber(long mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	public UserDetails(int userDetailsId, String gender, Date dob, long mobileNumber) {
+		super();
+		this.userDetailsId = userDetailsId;
+		this.gender = gender;
+		this.dob = dob;
+		this.mobileNumber = mobileNumber;
+	}
+	public UserDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

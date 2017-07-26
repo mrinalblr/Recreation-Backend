@@ -1,31 +1,54 @@
 package com.mrinal.model;
 
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
-@Entity
+
+@Entity(name="USER")
 public class User {
  
 	@Id
+	@Column(name="USER_ID")
 	@GeneratedValue (strategy = GenerationType.AUTO)
-	
 	private int id;
-	
+	@Column(name="USER_FIRSTNAME")
 	private String firstName;
-
+	@Column(name="USER_LASTNAME")
 	private String lastName;
+	@Column(name="USER_EMAILID")
+	private String emailId;
+	@Column(name="USER_PASSWORD")
+	private String password;
 	
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, 
+            fetch = FetchType.LAZY, optional = false)
+	private UserDetails userDetails;
+   
+
 	public User(String firstName, String lastName, String emailId, String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
 		this.password = password;
+	}
+
+	public UserDetails getUserDetails() {
+		return userDetails;
+	}
+
+	public void setUserDetails(UserDetails userDetails) {
+		this.userDetails = userDetails;
 	}
 
 	public String getEmailId() {
@@ -47,8 +70,7 @@ public class User {
 	public int getId() {
 		return id;
 	}
-	private String emailId;
-	private String password;
+	
 	
 	
 	public User() {

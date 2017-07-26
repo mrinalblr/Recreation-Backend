@@ -1,0 +1,18 @@
+package com.mrinal.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+
+@Entity
+public class UserDetails {
+
+	private int userDetailsId;
+	private String gender;
+	private Date dob;
+	private long mobileNumber;
+	private String addressLine1;
+	private String addressLine2;
+	
+
+}

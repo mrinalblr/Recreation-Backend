@@ -1,0 +1,5 @@
+package com.mrinal.controller;
+
+public class SendEmailController {
+
+}

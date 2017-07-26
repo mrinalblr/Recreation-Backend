@@ -1,0 +1,5 @@
+package com.mrinal.security;
+
+public class SecurityWebApplicationInitializer  extends AbstractSecurityWebApplicationInitializer{
+
+}

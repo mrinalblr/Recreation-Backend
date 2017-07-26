@@ -1,0 +1,50 @@
+package com.mrinal.model;
+
+import javax.annotation.Generated;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Car {
+ 
+	private String name;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	
+	private CarDetails carDetails;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public CarDetails getCarDetails() {
+		return carDetails;
+	}
+
+	public void setCarDetails(CarDetails carDetails) {
+		this.carDetails = carDetails;
+	}
+
+	public Car(String name, int id, CarDetails carDetails) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.carDetails = carDetails;
+	}
+	
+}
