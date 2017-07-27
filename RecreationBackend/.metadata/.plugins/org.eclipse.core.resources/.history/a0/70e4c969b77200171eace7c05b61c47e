@@ -1,0 +1,51 @@
+package com.mrinal.service;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.mrinal.model.User;
+import com.mrinal.repo.UserRepo;
+import com.mrinal.response.GenericResponse;
+import com.mrinal.response.UserResponse;
+
+@Service
+public class UserService {
+	@Autowired
+	UserRepo rp;
+	
+	public ResponseEntity<GenericResponse> registerUser(User user){
+		User newUser = new User();
+        GenericResponse response =null;
+        String userId="";
+        try{
+	          if (user != null) {
+	      
+	        			 System.out.println("Email Id is not present");
+	        			 newUser.setFirstName(user.getFirstName());
+	    	    	     newUser.setLastName(user.getLastName());
+	    	    	     newUser.setEmailId(user.getEmailId());
+	    	             newUser.setPassword(user.getPassword());
+	    	             rp.save(newUser);
+	    	             userId = String.valueOf(newUser.getId());
+	    	             response= new UserResponse("SUCCESS","Successfully registered",newUser.getFirstName(),newUser.getLastName(),
+	    	        		 newUser.getEmailId(),userId); 
+	        	 }
+	    
+        }
+        
+        catch(DataIntegrityViolationException d){
+      	  response = new GenericResponse("FAILURE","","Email Id already exist");
+      	  return new ResponseEntity<GenericResponse>(response, HttpStatus.OK);
+        }
+        catch(Exception e){
+      	  
+        }
+
+	   
+	    return new ResponseEntity<GenericResponse>(response, HttpStatus.OK);
+	}
+}

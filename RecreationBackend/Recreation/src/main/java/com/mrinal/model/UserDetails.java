@@ -10,10 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+
 
 @Entity(name="USER_DETAILS")
 public class UserDetails {
@@ -22,14 +20,19 @@ public class UserDetails {
 	@Column(name="USER_DETAILS_ID",nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userDetailsId;
+	
 	@Column(name="USER_GENDER")
 	private String gender;
+	
 	@Column(name="USER_DOB")
 	private String dob;
+	
 	@Column(name="USER_MOBILE")
 	private String mobileNumber;
+	
 	@Column(name="USER_ADDRESSLINE1")
 	private String addressLine1;
+	
 	@Column(name="USER_ADDRESSLINE2")
 	private String addressLine2;
 

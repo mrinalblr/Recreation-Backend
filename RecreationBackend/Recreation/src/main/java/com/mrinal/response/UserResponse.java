@@ -1,6 +1,6 @@
 package com.mrinal.response;
 
-public class UserResponse {
+public class UserResponse extends GenericResponse {
 
 	private String status;
 	public String getStatus() {

@@ -1,0 +1,12 @@
+package com.mrinal.service;
+
+import java.util.Hashtable;
+import org.springframework.stereotype.Service;
+
+import com.mrinal.model.User;
+
+@Service
+public class UserService {
+
+	
+}
